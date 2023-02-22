@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Bitcoind",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/bitcoin-debug/bitcoin/build/src/bitcoind",
+      "args": ["-regtest","-daemon=0"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+    {
+      "name": "getinfo",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/bitcoin-debug/bitcoin/build/src/bitcoin-cli",
+      "args": ["-regtest","-getinfo"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+
+  ]
+}

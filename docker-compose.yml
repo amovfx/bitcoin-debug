@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  bitcoin:
+    image: bitcoin-debug:latest
+    stdin_open: true # docker run -i
+    tty: true
+    ports:
+      - 8333:8333
+      - 18333:18333
+    volumes:
+      - ./bitcoin/:/bitcoin-debug/bitcoin/
+      - ./debug-configurations.json:/bitcoin-debug/.vscode/launch.json
+      - ./buildBitcoin.sh:/buildBitcoin.sh
+    command: /bin/bash
