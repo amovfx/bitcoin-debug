@@ -5,11 +5,15 @@ services:
     image: bitcoin-debug:latest
     stdin_open: true # docker run -i
     tty: true
+    environment:
+      - USER
     ports:
       - 8333:8333
       - 18333:18333
     volumes:
       - ./bitcoin/:/bitcoin-debug/bitcoin/
+      - /Users/${USER}/bitcoin/data:/.bitcoin/data
       - ./debug-configurations.json:/bitcoin-debug/.vscode/launch.json
-      - ./buildBitcoin.sh:/buildBitcoin.sh
+      - ./build.sh:/buildBitcoin.sh
+      - ./bitcoin.conf:/.bitcoin/bitcoin.conf
     command: /bin/bash
