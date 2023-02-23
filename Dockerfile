@@ -15,9 +15,14 @@ RUN apt update \
     libzmq3-dev \
     systemtap-sdt-dev \
     gdb \
-    ccache
-# COPY ./bitcoin /bitcoin
-# COPY ./buildBitcoin.sh /buildBitcoin.sh
-# RUN chmod +x /buildBitcoin.sh
-# RUN /buildBitcoin.sh
+    ccache \ 
+    gosu
+
+ENV PATH=/bitcoin/build/src:$PATH
+
+COPY ./entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+RUN bitcoind -version | grep "Bitcoin Core version v${BITCOIN_VERSION}"
 

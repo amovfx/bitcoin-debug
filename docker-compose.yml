@@ -10,10 +10,14 @@ services:
     ports:
       - 8333:8333
       - 18333:18333
+      - 18443:18443
+      - 18444:18444
+      - 38333:38333
+      - 38332:38332
     volumes:
-      - ./bitcoin/:/bitcoin-debug/bitcoin/
-      - /Users/${USER}/bitcoin/data:/.bitcoin/data
-      - ./debug-configurations.json:/bitcoin-debug/.vscode/launch.json
-      - ./build.sh:/buildBitcoin.sh
+      - ./bitcoin/:/bitcoin/
+      - ./.data:${BITCOIN_DATA}
+      - ./debug-configurations.json:/dev/.vscode/launch.json
+      - ./build.sh:/build.sh
       - ./bitcoin.conf:/.bitcoin/bitcoin.conf
     command: /bin/bash
