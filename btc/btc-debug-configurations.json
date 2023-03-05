@@ -1,0 +1,58 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Bitcoind",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/bitcoin/build/src/bitcoind",
+      "args": ["-daemon=0"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+    {
+      "name": "createrawtransaction",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/bitcoin/build/src/bitcoin-cli",
+      "args": ["-createrawtransaction","[{\"txid\":\"6415846acbb4854b0eb074a9285a836d4b32869e3c7e34edb3675d412968bab7\",\"vout\":0}]"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+    {
+      "name": "getinfo",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/bitcoin/build/src/bitcoin-cli",
+      "args": ["-getinfo"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+    {
+      "name": "generate 1",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/bitcoin/build/src/bitcoin-cli",
+      "args": ["-generate", "1"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+
+  ]
+}

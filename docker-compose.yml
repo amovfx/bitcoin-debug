@@ -3,6 +3,9 @@ version: '3.9'
 services:
   bitcoin:
     image: bitcoin-debug:latest
+    build:
+      context: ./btc
+      dockerfile: Dockerfile
     stdin_open: true # docker run -i
     tty: true
     environment:
@@ -17,7 +20,7 @@ services:
     volumes:
       - ./bitcoin/:/bitcoin/
       - ./.data:${BITCOIN_DATA}
-      - ./debug-configurations.json:/dev/.vscode/launch.json
-      - ./build.sh:/build.sh
-      - ./bitcoin.conf:/.bitcoin/bitcoin.conf
+      - ./btc/btc-debug-configurations.json:/dev/.vscode/launch.json
+      - ./btc/build.sh:/build.sh
+      - ./btc/bitcoin.conf:/.bitcoin/bitcoin.conf
     command: /bin/bash
